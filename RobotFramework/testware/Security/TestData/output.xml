@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.1.2 (Python 3.6.9 on linux)" generated="20200317 17:09:54.442" rpa="false">
+<suite id="s1" name="SecurityTestCase" source="/home/diego/Documents/Brasil/tests/testware/Security/TestCases/SecurityTestCase.robot">
+<test id="s1-t1" name="Validate MSE initialization">
+<kw name="Mse Initialize" library="SecurityWrapper">
+<doc>:return: MSE initialization</doc>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20200317 17:09:54.476" level="INFO">False</msg>
+<msg timestamp="20200317 17:09:54.476" level="INFO">${result} = False</msg>
+<status status="PASS" starttime="20200317 17:09:54.473" endtime="20200317 17:09:54.476"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>${result}</arg>
+</arguments>
+<msg timestamp="20200317 17:09:54.476" level="FAIL">'False' should be true.</msg>
+<status status="FAIL" starttime="20200317 17:09:54.476" endtime="20200317 17:09:54.476"></status>
+</kw>
+<doc>Validate mse initialization</doc>
+<tags>
+<tag>command</tag>
+<tag>mse-initialization</tag>
+<tag>mse-tests</tag>
+</tags>
+<status status="FAIL" starttime="20200317 17:09:54.472" endtime="20200317 17:09:54.477" critical="yes">'False' should be true.</status>
+</test>
+<test id="s1-t2" name="Validate psu version">
+<kw name="Get Mse Version" library="SecurityWrapper">
+<doc>:return: Model and firmware version of the MSE</doc>
+<assign>
+<var>${mse_version}</var>
+</assign>
+<msg timestamp="20200317 17:09:54.478" level="INFO">()</msg>
+<msg timestamp="20200317 17:09:54.478" level="INFO">${mse_version} = ()</msg>
+<status status="PASS" starttime="20200317 17:09:54.477" endtime="20200317 17:09:54.478"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${mse_version}</arg>
+<arg>(1, 2, 1, 0)</arg>
+</arguments>
+<msg timestamp="20200317 17:09:54.478" level="INFO">Argument types are:
+&lt;class 'tuple'&gt;
+&lt;type 'unicode'&gt;</msg>
+<msg timestamp="20200317 17:09:54.478" level="FAIL">() != (1, 2, 1, 0)</msg>
+<status status="FAIL" starttime="20200317 17:09:54.478" endtime="20200317 17:09:54.478"></status>
+</kw>
+<doc>Compare the model and version
+of the current MSE</doc>
+<tags>
+<tag>command</tag>
+<tag>mse-tests</tag>
+<tag>mse-version</tag>
+</tags>
+<status status="FAIL" starttime="20200317 17:09:54.477" endtime="20200317 17:09:54.479" critical="yes">() != (1, 2, 1, 0)</status>
+</test>
+<test id="s1-t3" name="Validate hash command">
+<kw name="Get Hash" library="SecurityWrapper">
+<doc>:return: Hash SHA3-512 of file</doc>
+<arguments>
+<arg>/data/printerfiles/Imagem_Anexo_II_Item_201.png</arg>
+</arguments>
+<assign>
+<var>${hash}</var>
+</assign>
+<msg timestamp="20200317 17:09:54.480" level="INFO">${hash} = </msg>
+<status status="PASS" starttime="20200317 17:09:54.479" endtime="20200317 17:09:54.480"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${hash}</arg>
+<arg>7838885eee5eb6aee6eae1c2c34c65c36e3794203b21594ebf0271d3b9dda23f45d5ce957bb34bdaad3be17598b687d5aa7c971c6d7a8fe52676d39a842e7</arg>
+</arguments>
+<msg timestamp="20200317 17:09:54.480" level="FAIL"> != 7838885eee5eb6aee6eae1c2c34c65c36e3794203b21594ebf0271d3b9dda23f45d5ce957bb34bdaad3be17598b687d5aa7c971c6d7a8fe52676d39a842e7</msg>
+<status status="FAIL" starttime="20200317 17:09:54.480" endtime="20200317 17:09:54.480"></status>
+</kw>
+<doc>Verify that the hash function</doc>
+<tags>
+<tag>command</tag>
+<tag>mse-hash</tag>
+<tag>mse-tests</tag>
+</tags>
+<status status="FAIL" starttime="20200317 17:09:54.479" endtime="20200317 17:09:54.480" critical="yes"> != 7838885eee5eb6aee6eae1c2c34c65c36e3794203b21594ebf0271d3b9dda23f45d5ce957bb34bdaad3be17598b687d5aa7c971c6d7a8fe52676d39a842e7</status>
+</test>
+<doc>Review of the different modules of the MSE.</doc>
+<status status="FAIL" starttime="20200317 17:09:54.443" endtime="20200317 17:09:54.481"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="3">Critical Tests</stat>
+<stat pass="0" fail="3">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="3">command</stat>
+<stat pass="0" fail="1">mse-hash</stat>
+<stat pass="0" fail="1">mse-initialization</stat>
+<stat pass="0" fail="3">mse-tests</stat>
+<stat pass="0" fail="1">mse-version</stat>
+</tag>
+<suite>
+<stat pass="0" fail="3" id="s1" name="SecurityTestCase">SecurityTestCase</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

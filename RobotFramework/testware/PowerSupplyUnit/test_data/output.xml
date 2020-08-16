@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.1.2 (Python 3.6.9 on linux)" generated="20200317 16:17:11.798" rpa="false">
+<suite id="s1" name="PowerSupplyUnitTestCase" source="/home/diego/Documents/Brasil/tests/testware/PowerSupplyUnit/test_cases/PowerSupplyUnitTestCase.robot">
+<test id="s1-t1" name="Validate psu initialization">
+<kw name="Powersupplyunit Initialize" library="PowerSupplyUnitWrapper">
+<doc>:return: Model and firmware version of the power supply unit</doc>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20200317 16:17:12.223" level="INFO">False</msg>
+<msg timestamp="20200317 16:17:12.224" level="INFO">${result} = False</msg>
+<status status="PASS" starttime="20200317 16:17:12.219" endtime="20200317 16:17:12.224"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>${result}</arg>
+</arguments>
+<msg timestamp="20200317 16:17:12.224" level="FAIL">'False' should be true.</msg>
+<status status="FAIL" starttime="20200317 16:17:12.224" endtime="20200317 16:17:12.224"></status>
+</kw>
+<doc>Validate psu initialization</doc>
+<tags>
+<tag>command</tag>
+<tag>psu-initialization</tag>
+<tag>psu-tests</tag>
+</tags>
+<status status="FAIL" starttime="20200317 16:17:12.218" endtime="20200317 16:17:12.225" critical="yes">'False' should be true.</status>
+</test>
+<test id="s1-t2" name="Validate psu version">
+<kw name="Get Powersupplyunit Version" library="PowerSupplyUnitWrapper">
+<doc>:return: Model and firmware version of the power supply unit</doc>
+<assign>
+<var>${psu_version}</var>
+</assign>
+<msg timestamp="20200317 16:17:12.226" level="INFO">0.0</msg>
+<msg timestamp="20200317 16:17:12.226" level="INFO">${psu_version} = 0.0</msg>
+<status status="PASS" starttime="20200317 16:17:12.225" endtime="20200317 16:17:12.226"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${psu_version}</arg>
+<arg>18.52</arg>
+</arguments>
+<msg timestamp="20200317 16:17:12.226" level="FAIL">0.0 != 18.52</msg>
+<status status="FAIL" starttime="20200317 16:17:12.226" endtime="20200317 16:17:12.226"></status>
+</kw>
+<doc>Compare the model and version
+of the current psu</doc>
+<tags>
+<tag>command</tag>
+<tag>psu-tests</tag>
+<tag>psu-version</tag>
+</tags>
+<status status="FAIL" starttime="20200317 16:17:12.225" endtime="20200317 16:17:12.226" critical="yes">0.0 != 18.52</status>
+</test>
+<test id="s1-t3" name="Validate psu ac voltage">
+<kw name="Get Powersupplyunit Acvolt" library="PowerSupplyUnitWrapper">
+<doc>:return: Volt of the powersupplyunit</doc>
+<assign>
+<var>${psu_ac_volts}</var>
+</assign>
+<msg timestamp="20200317 16:17:12.228" level="FAIL">TypeError: unsupported operand type(s) for +: 'int' and 'str'</msg>
+<status status="FAIL" starttime="20200317 16:17:12.227" endtime="20200317 16:17:12.228"></status>
+</kw>
+<doc>Verify that the psu ac voltage
+does not exceed 300 volts</doc>
+<tags>
+<tag>command</tag>
+<tag>psu-ac</tag>
+<tag>psu-tests</tag>
+</tags>
+<status status="FAIL" starttime="20200317 16:17:12.227" endtime="20200317 16:17:12.228" critical="yes">TypeError: unsupported operand type(s) for +: 'int' and 'str'</status>
+</test>
+<test id="s1-t4" name="Validate psu internal battery voltage">
+<kw name="Get Powersupplyunit InternalBatteryVoltage" library="PowerSupplyUnitWrapper">
+<doc>"
+:return: Volt of the internal battery</doc>
+<assign>
+<var>${psu_dc_volts}</var>
+</assign>
+<msg timestamp="20200317 16:17:12.229" level="FAIL">TypeError: unsupported operand type(s) for +: 'int' and 'str'</msg>
+<status status="FAIL" starttime="20200317 16:17:12.229" endtime="20200317 16:17:12.229"></status>
+</kw>
+<doc>Validate that the psu dc voltage
+does not exceed 15 volts</doc>
+<tags>
+<tag>command</tag>
+<tag>psu-dc</tag>
+<tag>psu-tests</tag>
+</tags>
+<status status="FAIL" starttime="20200317 16:17:12.228" endtime="20200317 16:17:12.229" critical="yes">TypeError: unsupported operand type(s) for +: 'int' and 'str'</status>
+</test>
+<test id="s1-t5" name="Validate psu internal battery %">
+<kw name="Get Powersupplyunit InternalBatteryPercentage" library="PowerSupplyUnitWrapper">
+<doc>:return: Psu internal battery percentage</doc>
+<assign>
+<var>${psu_charge}</var>
+</assign>
+<msg timestamp="20200317 16:17:12.230" level="INFO">${psu_charge} = 0</msg>
+<status status="PASS" starttime="20200317 16:17:12.230" endtime="20200317 16:17:12.230"></status>
+</kw>
+<kw name="Should Be Less Than" library="RobotFrameworkUtilities">
+<doc>Validates that the first value given is less than the second value.
+:param: number1  number that should be less
+:param: number2  number that should be greater
+:return: boolean value</doc>
+<arguments>
+<arg>${psu_charge}</arg>
+<arg>100</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20200317 16:17:12.230" level="INFO">${result} = True</msg>
+<status status="PASS" starttime="20200317 16:17:12.230" endtime="20200317 16:17:12.230"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>${result}</arg>
+</arguments>
+<status status="PASS" starttime="20200317 16:17:12.231" endtime="20200317 16:17:12.231"></status>
+</kw>
+<doc>Validate that the psu dc %
+does not exceed 100%</doc>
+<tags>
+<tag>command</tag>
+<tag>psu-%</tag>
+<tag>psu-tests</tag>
+</tags>
+<status status="PASS" starttime="20200317 16:17:12.229" endtime="20200317 16:17:12.231" critical="yes"></status>
+</test>
+<doc>Review of the different modules of the PSU.</doc>
+<status status="FAIL" starttime="20200317 16:17:11.799" endtime="20200317 16:17:12.231"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="4">Critical Tests</stat>
+<stat pass="1" fail="4">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="4">command</stat>
+<stat pass="1" fail="0">psu-%</stat>
+<stat pass="0" fail="1">psu-ac</stat>
+<stat pass="0" fail="1">psu-dc</stat>
+<stat pass="0" fail="1">psu-initialization</stat>
+<stat pass="1" fail="4">psu-tests</stat>
+<stat pass="0" fail="1">psu-version</stat>
+</tag>
+<suite>
+<stat pass="1" fail="4" id="s1" name="PowerSupplyUnitTestCase">PowerSupplyUnitTestCase</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
